@@ -1,0 +1,204 @@
+{
+ "base": {
+  "K": 500,
+  "bits": 640,
+  "calibration": "per_query",
+  "bytes_per_aa": 80,
+  "cold": {
+   "1 chance level: read from disk": 0.009760988300001827,
+   "1 chance level: send to GPU": 0.396159735949999,
+   "1 chance level: align": 0.3938474906999943,
+   "2 candidates: read from disk": 1.6727963980500078,
+   "2 candidates: send to GPU": 0.13667375939999715,
+   "2 candidates: align": 0.21839910145001226,
+   "3 accepted: re-align + traceback": 0.2764592918500057
+  },
+  "warm": {
+   "1 chance level: read from disk": 0.009575958199991418,
+   "1 chance level: send to GPU": 0.39427023995000354,
+   "1 chance level: align": 0.3762196501999881,
+   "2 candidates: read from disk": 0.9600087903000031,
+   "2 candidates: send to GPU": 0.11881337935000147,
+   "2 candidates: align": 0.22910392835000834,
+   "3 accepted: re-align + traceback": 0.2465536602000043
+  },
+  "cold_total": 3.4690185708500163,
+  "warm_total": 2.699467411699999,
+  "accepted": 3485,
+  "kept_from_base": 1.0,
+  "new_vs_base": 0
+ },
+ "k200": {
+  "K": 200,
+  "bits": 640,
+  "calibration": "per_query",
+  "bytes_per_aa": 80,
+  "cold": {
+   "1 chance level: read from disk": 0.009603940250008236,
+   "1 chance level: send to GPU": 0.4587720162500091,
+   "1 chance level: align": 0.46099728359999403,
+   "2 candidates: read from disk": 0.42586316344998637,
+   "2 candidates: send to GPU": 0.04966061309999077,
+   "2 candidates: align": 0.12191561559999968,
+   "3 accepted: re-align + traceback": 0.2095665824500202
+  },
+  "warm": {
+   "1 chance level: read from disk": 0.009511452299983602,
+   "1 chance level: send to GPU": 0.36635764249999736,
+   "1 chance level: align": 0.43554976599997985,
+   "2 candidates: read from disk": 0.0026373765000016645,
+   "2 candidates: send to GPU": 0.03987158579998891,
+   "2 candidates: align": 0.10801585890001206,
+   "3 accepted: re-align + traceback": 0.18553087715001765
+  },
+  "cold_total": 2.101301019850007,
+  "warm_total": 1.5123963642999798,
+  "accepted": 1782,
+  "kept_from_base": 0.5113342898134864,
+  "new_vs_base": 0
+ },
+ "bits256": {
+  "K": 500,
+  "bits": 256,
+  "calibration": "per_query",
+  "bytes_per_aa": 32,
+  "cold": {
+   "1 chance level: read from disk": 0.6965694615499955,
+   "1 chance level: send to GPU": 0.46096160774998796,
+   "1 chance level: align": 0.45261836564999386,
+   "2 candidates: read from disk": 0.48224932585000035,
+   "2 candidates: send to GPU": 0.1098918979000075,
+   "2 candidates: align": 0.20158540280001488,
+   "3 accepted: re-align + traceback": 0.3128946213999996
+  },
+  "warm": {
+   "1 chance level: read from disk": 0.006261330299992096,
+   "1 chance level: send to GPU": 0.4278476581999996,
+   "1 chance level: align": 0.4050002936499936,
+   "2 candidates: read from disk": 0.11943584540001666,
+   "2 candidates: send to GPU": 0.09024110344999485,
+   "2 candidates: align": 0.20125539970000544,
+   "3 accepted: re-align + traceback": 0.31029749985000876
+  },
+  "cold_total": 3.081692488049998,
+  "warm_total": 1.9252609357000097,
+  "accepted": 3805,
+  "kept_from_base": 0.914490674318508,
+  "new_vs_base": 618
+ },
+ "bits128": {
+  "K": 500,
+  "bits": 128,
+  "calibration": "per_query",
+  "bytes_per_aa": 16,
+  "cold": {
+   "1 chance level: read from disk": 0.3617766608500176,
+   "1 chance level: send to GPU": 0.39231910405000575,
+   "1 chance level: align": 0.428928802199988,
+   "2 candidates: read from disk": 0.026081978199994183,
+   "2 candidates: send to GPU": 0.1210382830500123,
+   "2 candidates: align": 0.20001406239999825,
+   "3 accepted: re-align + traceback": 0.3105877403000079
+  },
+  "warm": {
+   "1 chance level: read from disk": 0.005150077800004737,
+   "1 chance level: send to GPU": 0.41372433854999713,
+   "1 chance level: align": 0.4604736437500037,
+   "2 candidates: read from disk": 0.001594908449982313,
+   "2 candidates: send to GPU": 0.1059175295500097,
+   "2 candidates: align": 0.2609552153999914,
+   "3 accepted: re-align + traceback": 0.30913972914998455
+  },
+  "cold_total": 2.2056684362000225,
+  "warm_total": 1.921877247799972,
+  "accepted": 3470,
+  "kept_from_base": 0.7744619799139167,
+  "new_vs_base": 771
+ },
+ "precal": {
+  "K": 500,
+  "bits": 640,
+  "calibration": "pre",
+  "bytes_per_aa": 80,
+  "cold": {
+   "2 candidates: read from disk": 1.7898543543000074,
+   "2 candidates: send to GPU": 0.1478560932999983,
+   "2 candidates: align": 0.24407641915000228,
+   "3 accepted: re-align + traceback": 1.830389999781801e-05
+  },
+  "warm": {
+   "2 candidates: read from disk": 0.9711900335500048,
+   "2 candidates: send to GPU": 0.1538891863500055,
+   "2 candidates: align": 0.23853938669998911,
+   "3 accepted: re-align + traceback": 1.4211549989795458e-05
+  },
+  "cold_total": 2.5467269758000044,
+  "warm_total": 1.728554623299988,
+  "accepted": 0,
+  "kept_from_base": 0.0,
+  "new_vs_base": 0
+ },
+ "cal200": {
+  "K": 500,
+  "bits": 640,
+  "calibration": "small",
+  "bytes_per_aa": 80,
+  "cold": {
+   "1 chance level: read from disk": 0.0011137019999750918,
+   "1 chance level: send to GPU": 0.03870696975000101,
+   "1 chance level: align": 0.07925985250003578,
+   "2 candidates: read from disk": 1.6151279227999111,
+   "2 candidates: send to GPU": 0.1479955895000103,
+   "2 candidates: align": 0.244322335950028,
+   "3 accepted: re-align + traceback": 0.41042049274992676
+  },
+  "warm": {
+   "1 chance level: read from disk": 0.002846210500047164,
+   "1 chance level: send to GPU": 0.041357914099944534,
+   "1 chance level: align": 0.07903514109998469,
+   "2 candidates: read from disk": 0.9792639828500341,
+   "2 candidates: send to GPU": 0.10697844470000746,
+   "2 candidates: align": 0.22235949394998897,
+   "3 accepted: re-align + traceback": 0.43151435029990354
+  },
+  "cold_total": 2.9135515800998517,
+  "warm_total": 2.2399602523498743,
+  "accepted": 5482,
+  "kept_from_base": 0.9899569583931134,
+  "new_vs_base": 2032
+ },
+ "combined": {
+  "K": 200,
+  "bits": 256,
+  "calibration": "small",
+  "bytes_per_aa": 32,
+  "cold": {
+   "1 chance level: read from disk": 0.15702139999996234,
+   "1 chance level: send to GPU": 0.046286982449964854,
+   "1 chance level: align": 0.09116881315005684,
+   "2 candidates: read from disk": 0.41201217055004236,
+   "2 candidates: send to GPU": 0.040631109499963715,
+   "2 candidates: align": 0.11948142880000887,
+   "3 accepted: re-align + traceback": 0.27256762594993234
+  },
+  "warm": {
+   "1 chance level: read from disk": 0.0006307767999487624,
+   "1 chance level: send to GPU": 0.03326655300004404,
+   "1 chance level: align": 0.06782777195001018,
+   "2 candidates: read from disk": 0.0011979780000046958,
+   "2 candidates: send to GPU": 0.03406977944998744,
+   "2 candidates: align": 0.10228292800006784,
+   "3 accepted: re-align + traceback": 0.21213263050001388
+  },
+  "cold_total": 1.5157742452498952,
+  "warm_total": 0.8280131325500406,
+  "accepted": 2965,
+  "kept_from_base": 0.5426111908177905,
+  "new_vs_base": 1074
+ },
+ "_search_s": 0.3766047148499638,
+ "_precal_setup_s": {
+  "640": 50.174458742141724,
+  "256": 43.611899614334106
+ }
+}

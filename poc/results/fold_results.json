@@ -1,0 +1,362 @@
+[
+ {
+  "q": "d1s7ma_",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.2399,
+  "plddt": 39.310506329113934
+ },
+ {
+  "q": "d1s7ma_",
+  "condition": "mmseqs_cf",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.2399,
+  "plddt": 39.310506329113934
+ },
+ {
+  "q": "d1s7ma_",
+  "condition": "emb_twostage",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.2399,
+  "plddt": 39.310506329113934
+ },
+ {
+  "q": "d1s7ma_",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.2399,
+  "plddt": 39.310506329113934
+ },
+ {
+  "q": "d1s7ma_",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.2399,
+  "plddt": 39.310506329113934
+ },
+ {
+  "q": "d1t0hb_",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 18,
+  "ref_neff": 1.0,
+  "tm": 0.4477,
+  "plddt": 34.56114155251142
+ },
+ {
+  "q": "d1t0hb_",
+  "condition": "mmseqs_cf",
+  "msa_rows": 18,
+  "ref_neff": 1.0,
+  "tm": 0.4477,
+  "plddt": 34.56114155251142
+ },
+ {
+  "q": "d1t0hb_",
+  "condition": "emb_twostage",
+  "msa_rows": 18,
+  "ref_neff": 1.0,
+  "tm": 0.4477,
+  "plddt": 34.56114155251142
+ },
+ {
+  "q": "d1t0hb_",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 18,
+  "ref_neff": 1.0,
+  "tm": 0.4477,
+  "plddt": 34.56114155251142
+ },
+ {
+  "q": "d1t0hb_",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.3234,
+  "plddt": 32.66735159817352
+ },
+ {
+  "q": "d1q7ha2",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.3331,
+  "plddt": 42.18090909090908
+ },
+ {
+  "q": "d1q7ha2",
+  "condition": "mmseqs_cf",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.3331,
+  "plddt": 42.18090909090908
+ },
+ {
+  "q": "d1q7ha2",
+  "condition": "emb_twostage",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.3331,
+  "plddt": 42.18090909090908
+ },
+ {
+  "q": "d1q7ha2",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.3331,
+  "plddt": 42.18090909090908
+ },
+ {
+  "q": "d1q7ha2",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.3331,
+  "plddt": 42.18090909090908
+ },
+ {
+  "q": "d1jiha1",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 1,
+  "ref_neff": 1.0,
+  "tm": 0.4131,
+  "plddt": 35.39549999999999
+ },
+ {
+  "q": "d1jiha1",
+  "condition": "mmseqs_cf",
+  "msa_rows": 1,
+  "ref_neff": 1.0,
+  "tm": 0.4131,
+  "plddt": 35.39549999999999
+ },
+ {
+  "q": "d1jiha1",
+  "condition": "emb_twostage",
+  "msa_rows": 1,
+  "ref_neff": 1.0,
+  "tm": 0.4131,
+  "plddt": 35.39549999999999
+ },
+ {
+  "q": "d1jiha1",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 1,
+  "ref_neff": 1.0,
+  "tm": 0.4131,
+  "plddt": 35.39549999999999
+ },
+ {
+  "q": "d1jiha1",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 1.0,
+  "tm": 0.4402,
+  "plddt": 37.07616666666666
+ },
+ {
+  "q": "d2dgxa1",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 6,
+  "ref_neff": 1.2857143878936768,
+  "tm": 0.6237,
+  "plddt": 60.54349397590362
+ },
+ {
+  "q": "d2dgxa1",
+  "condition": "mmseqs_cf",
+  "msa_rows": 6,
+  "ref_neff": 1.2857143878936768,
+  "tm": 0.6237,
+  "plddt": 60.54349397590362
+ },
+ {
+  "q": "d2dgxa1",
+  "condition": "emb_twostage",
+  "msa_rows": 0,
+  "ref_neff": 1.2857143878936768,
+  "tm": 0.7237,
+  "plddt": 68.43301204819277
+ },
+ {
+  "q": "d2dgxa1",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 6,
+  "ref_neff": 1.2857143878936768,
+  "tm": 0.6237,
+  "plddt": 60.54349397590362
+ },
+ {
+  "q": "d2dgxa1",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 1.2857143878936768,
+  "tm": 0.7237,
+  "plddt": 68.43301204819277
+ },
+ {
+  "q": "d1lrva_",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 1,
+  "ref_neff": 2.0,
+  "tm": 0.707,
+  "plddt": 83.89811158798284
+ },
+ {
+  "q": "d1lrva_",
+  "condition": "mmseqs_cf",
+  "msa_rows": 1,
+  "ref_neff": 2.0,
+  "tm": 0.707,
+  "plddt": 83.89811158798284
+ },
+ {
+  "q": "d1lrva_",
+  "condition": "emb_twostage",
+  "msa_rows": 1,
+  "ref_neff": 2.0,
+  "tm": 0.707,
+  "plddt": 83.89811158798284
+ },
+ {
+  "q": "d1lrva_",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 1,
+  "ref_neff": 2.0,
+  "tm": 0.707,
+  "plddt": 83.89811158798284
+ },
+ {
+  "q": "d1lrva_",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 2.0,
+  "tm": 0.3246,
+  "plddt": 31.647682403433475
+ },
+ {
+  "q": "d1w0pa1",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 4,
+  "ref_neff": 2.0,
+  "tm": 0.4323,
+  "plddt": 32.34802083333333
+ },
+ {
+  "q": "d1w0pa1",
+  "condition": "mmseqs_cf",
+  "msa_rows": 4,
+  "ref_neff": 2.0,
+  "tm": 0.4323,
+  "plddt": 32.34802083333333
+ },
+ {
+  "q": "d1w0pa1",
+  "condition": "emb_twostage",
+  "msa_rows": 4,
+  "ref_neff": 2.0,
+  "tm": 0.4323,
+  "plddt": 32.34802083333333
+ },
+ {
+  "q": "d1w0pa1",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 4,
+  "ref_neff": 2.0,
+  "tm": 0.4323,
+  "plddt": 32.34802083333333
+ },
+ {
+  "q": "d1w0pa1",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 2.0,
+  "tm": 0.2923,
+  "plddt": 37.12354166666667
+ },
+ {
+  "q": "d2arca_",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 5,
+  "ref_neff": 2.0,
+  "tm": 0.3194,
+  "plddt": 40.148012422360246
+ },
+ {
+  "q": "d2arca_",
+  "condition": "mmseqs_cf",
+  "msa_rows": 5,
+  "ref_neff": 2.0,
+  "tm": 0.3194,
+  "plddt": 40.148012422360246
+ },
+ {
+  "q": "d2arca_",
+  "condition": "emb_twostage",
+  "msa_rows": 5,
+  "ref_neff": 2.0,
+  "tm": 0.3194,
+  "plddt": 40.148012422360246
+ },
+ {
+  "q": "d2arca_",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 5,
+  "ref_neff": 2.0,
+  "tm": 0.3194,
+  "plddt": 40.148012422360246
+ },
+ {
+  "q": "d2arca_",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 2.0,
+  "tm": 0.3274,
+  "plddt": 42.74024844720497
+ },
+ {
+  "q": "d1b35a_",
+  "condition": "jackhmmer_af2",
+  "msa_rows": 2,
+  "ref_neff": 2.0,
+  "tm": 0.2336,
+  "plddt": 25.308230769230768
+ },
+ {
+  "q": "d1b35a_",
+  "condition": "mmseqs_cf",
+  "msa_rows": 2,
+  "ref_neff": 2.0,
+  "tm": 0.2336,
+  "plddt": 25.308230769230768
+ },
+ {
+  "q": "d1b35a_",
+  "condition": "emb_twostage",
+  "msa_rows": 2,
+  "ref_neff": 2.0,
+  "tm": 0.2336,
+  "plddt": 25.308230769230768
+ },
+ {
+  "q": "d1b35a_",
+  "condition": "hybrid_mmseqs_emb",
+  "msa_rows": 2,
+  "ref_neff": 2.0,
+  "tm": 0.2336,
+  "plddt": 25.308230769230768
+ },
+ {
+  "q": "d1b35a_",
+  "condition": "single_sequence",
+  "msa_rows": 0,
+  "ref_neff": 2.0,
+  "tm": 0.2136,
+  "plddt": 25.967384615384614
+ }
+]

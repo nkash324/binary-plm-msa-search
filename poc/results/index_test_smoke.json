@@ -1,0 +1,146 @@
+{
+ "index": [
+  {
+   "index": "protein-640",
+   "bits_per_code": 640,
+   "codes": 20000,
+   "size_MB": 1.6,
+   "bytes_per_aa": 0.1918195438459315,
+   "s_per_query": 0.007904901333333214,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  },
+  {
+   "index": "protein-pca-128",
+   "bits_per_code": 128,
+   "codes": 20000,
+   "size_MB": 0.32,
+   "bytes_per_aa": 0.0383639087691863,
+   "s_per_query": 0.001367207333333435,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  },
+  {
+   "index": "protein-pca-256",
+   "bits_per_code": 256,
+   "codes": 20000,
+   "size_MB": 0.64,
+   "bytes_per_aa": 0.0767278175383726,
+   "s_per_query": 0.0011615133333329197,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  },
+  {
+   "index": "window-32-128",
+   "bits_per_code": 128,
+   "codes": 270031,
+   "size_MB": 4.320496,
+   "bytes_per_aa": 0.5179722324426073,
+   "s_per_query": 0.025705630333331914,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  },
+  {
+   "index": "window-32-256",
+   "bits_per_code": 256,
+   "codes": 270031,
+   "size_MB": 8.640992,
+   "bytes_per_aa": 1.0359444648852145,
+   "s_per_query": 0.03121841200000001,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  },
+  {
+   "index": "window-64-128",
+   "bits_per_code": 128,
+   "codes": 140057,
+   "size_MB": 2.240912,
+   "bytes_per_aa": 0.2686566985242963,
+   "s_per_query": 0.0049585809999991666,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  },
+  {
+   "index": "window-64-256",
+   "bits_per_code": 256,
+   "codes": 140057,
+   "size_MB": 4.481824,
+   "bytes_per_aa": 0.5373133970485926,
+   "s_per_query": 0.006027678000001184,
+   "recall@500": NaN,
+   "recall@2000": NaN,
+   "recall@5000": NaN,
+   "recall@20000": NaN
+  }
+ ],
+ "align": [
+  {
+   "index": "protein-640",
+   "K": 500,
+   "mode": "filtered",
+   "align_s_per_query": 0.06807751333333438,
+   "recall": NaN
+  },
+  {
+   "index": "protein-640",
+   "K": 500,
+   "mode": "max",
+   "align_s_per_query": 0.19231431866666782,
+   "recall": NaN
+  },
+  {
+   "index": "protein-640",
+   "K": 2000,
+   "mode": "filtered",
+   "align_s_per_query": 0.04179294500000097,
+   "recall": NaN
+  },
+  {
+   "index": "protein-640",
+   "K": 2000,
+   "mode": "max",
+   "align_s_per_query": 0.6102046796666656,
+   "recall": NaN
+  },
+  {
+   "index": "window-32-128",
+   "K": 500,
+   "mode": "filtered",
+   "align_s_per_query": 0.043730581999998464,
+   "recall": NaN
+  },
+  {
+   "index": "window-32-128",
+   "K": 500,
+   "mode": "max",
+   "align_s_per_query": 0.20942421533333425,
+   "recall": NaN
+  },
+  {
+   "index": "window-32-128",
+   "K": 2000,
+   "mode": "filtered",
+   "align_s_per_query": 0.04912530700000062,
+   "recall": NaN
+  },
+  {
+   "index": "window-32-128",
+   "K": 2000,
+   "mode": "max",
+   "align_s_per_query": 0.6166369440000009,
+   "recall": NaN
+  }
+ ]
+}
