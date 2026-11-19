@@ -23,5 +23,5 @@ nvidia-smi
 python cluster/bench_embed.py \
   --fasta "$WORK/sprot.fasta" --n 20000 \
   --models esm2_t30_150M_UR50D esm2_t33_650M_UR50D \
-  --max-seconds 120 \
+  --max-seconds 120 --compare-old \
   --out "$WORK/bench/bench_${SLURM_JOB_PARTITION}_${SLURM_JOB_ID}.json"
