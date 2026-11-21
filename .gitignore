@@ -6,3 +6,5 @@ __pycache__/
 *.flag
 poc/results/_*
 *.bak*
+agents/runs/
+agents/.venv/

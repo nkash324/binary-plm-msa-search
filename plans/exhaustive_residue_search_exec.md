@@ -185,6 +185,51 @@ All jobs run with `nice -n 10` and at most 3 CPU threads. They watch `~/folding-
   and `45_B_eval.py`.
 - TEA itself (once the URL is known), and ProstT5+Foldseek (~3 GB weights).
 
+## Reduced variant (user request 2026-11-20): steps 0, 1, 3, 4 with a light step 2
+
+Numbering here is this file's: 0 timing, 1 decoys + retune, 2 SCOPe exhaustive, 3 codebook + two-stage,
+4 Swiss-Prot MSAs.
+
+**Dependencies:**
+- Step 4 (Swiss-Prot MSAs) needs only the step 0 engine and the step 3 codebook. It does not need step 2.
+- Step 3 needs exhaustive hits to measure two-stage recall against. These can come from a small step 2, or from the
+  Swiss-Prot runs in step 4.
+- Only step 2 needs SCOPe decoys.
+
+**Option A (recommended): "2-lite".**
+- bits640 only, leak-free parameters, raw + z-ranked, on the fixed 1000-query subset, the same subset as every
+  B_benchmark row.
+- That is still enough for the headline question (above PLMSearch's 0.559 or not?) and gives the reference for step 3's
+  recall.
+- Dropped: the 256/128/2-bit/float variants, all-15,177 queries, and the FP-enrichment report. Without bits2 there is
+  no basis for the 2-bit Swiss-Prot re-embed, so that is dropped too.
+- Cost: SCOPe decoys as bits only (~15 min GPU, 0.4 GB) + ~25 min search. It is just under the ask line, so I will
+  ask before starting if step 0's timing puts it above 30 min.
+
+**Option B: no step 2 at all.**
+- Two-stage recall is measured against exhaustive on the 20 Swiss-Prot targets in step 4. That is a real recall test,
+  but only 20 queries.
+- No SCOPe decoys needed.
+- Lost: any SCOPe sensitivity number for exhaustive or two-stage, so the "beats PLMSearch?" criterion can't be
+  decided. Codebook choices (K, table type) are then tuned on 20 targets only, which is noisy.
+
+**Time, option A:**
+
+| step | time |
+|---|---|
+| 0 | ~15 min |
+| 1 | retune ~20 min + SCOPe bits decoys ~15 min + Swiss-Prot decoys ~5 min |
+| 2-lite | ~25 min |
+| 3 | ~1 day of kernel coding, then runs of ≤10 min each on the 1000 subset; Swiss-Prot id assignment ~15 min |
+| 4 | exhaustive ~10–20 min + two-stage + window, ~30–45 min total |
+
+Total compute is about 2.5–3 h, split into jobs that are each under ~30 min.
+
+**Approvals still needed:**
+- any job that step 0's timing puts over 30 min;
+- the optional extras (pLM-BLAST, TEA/Foldseek, uniprot_sprot.dat);
+- WSL RAM above 4 GB.
+
 ## Approvals needed, in order
 
 | # | what | why |
