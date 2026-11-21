@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-import esw
+import esw_triton as et
 from common import DATA, PHASE1
 
 torch.cuda.set_per_process_memory_fraction(0.6)
@@ -46,10 +46,10 @@ for b in range(0, len(SUB), QB):
         t_search += float(np.load(f)["secs"])
         continue
     qs = SUB[b:b + QB]
-    Qs = [esw.unpack(real[off[q]:off[q + 1]]) for q in qs]
+    Qs = [np.asarray(real[off[q]:off[q + 1]]) for q in qs]
     t = time.time()
-    S = esw.search(Qs, real, off, BIAS, GAP, pause=DATA / "PAUSE")
-    D = esw.search(Qs, dec, off, BIAS, GAP, pause=DATA / "PAUSE")
+    S = et.search(Qs, real, off, BIAS, GAP, pause=DATA / "PAUSE")
+    D = et.search(Qs, dec, off, BIAS, GAP, pause=DATA / "PAUSE")
     secs = time.time() - t
     np.savez(f, S=S.astype(np.float16), D=D.astype(np.float16), secs=secs)
     t_search += secs
@@ -64,15 +64,19 @@ for k, q in enumerate(SUB):
     coef, *_ = np.linalg.lstsq(A, D[k], rcond=None)
     sd = np.std(D[k] - A @ coef)
     zr, zd = (S[k] - A @ coef) / sd, (D[k] - A @ coef) / sd
-    beta = np.std(zd) * np.sqrt(6) / np.pi                                 # Gumbel by moments on decoy z
-    mu = np.mean(zd) - EG * beta
+    q90, q99 = np.quantile(zd, [0.9, 0.99])                                # Gumbel fitted to the decoy TAIL
+    beta = (q99 - q90) / (np.log(-np.log(0.9)) - np.log(-np.log(0.99)))   # (same recipe as 18_e2e.py)
+    mu = q90 + beta * np.log(-np.log(0.9))
     E = N * -np.expm1(-np.exp(-(zr - mu) / beta))
     raw_rank[q] = np.argsort(-S[k], kind="stable")[:1000].astype(np.int32)
     z_rank[q] = np.argsort(-zr, kind="stable")[:1000].astype(np.int32)
     sig = (E < 1e-3) & (np.arange(N) != q)
     stats.append({"sig": int(sig.sum()), "sig_false_fold": int((sig & (fold != fold[q])).sum()),
                   "sig_remote": int((sig & (sf == sf[q]) & (fam != fam[q])).sum()),
-                  "decoys_E<1e-3": int((N * -np.expm1(-np.exp(-(zd - mu) / beta)) < 1e-3).sum())})
+                  "decoys_E<1e-3": int((N * -np.expm1(-np.exp(-(zd - mu) / beta)) < 1e-3).sum()),
+                  "decoys_E<1": int((N * -np.expm1(-np.exp(-(zd - mu) / beta)) < 1).sum()),
+                  "above_best_decoy": int(((zr > zd.max()) & (np.arange(N) != q)).sum()),
+                  "above_best_decoy_false_fold": int(((zr > zd.max()) & (fold != fold[q])).sum())})
 bpp = 80 * float(lens.mean())
 note = f"exhaustive embedding SW, 640 bits, bias {BIAS} gap {GAP}, decoy-calibrated"
 p1.save_ranking(f"exh640-raw{TAG}", raw_rank, t_search / 2, bpp, note + " (raw score)")
@@ -84,11 +88,13 @@ out = Path("/mnt/c/Folding/phase1/results")
 (out / f"exhaustive_sw{TAG}.json").write_text(json.dumps(st, indent=1))
 L = [f"# Exhaustive embedding SW on SCOPe40 (640 bits, 1000-query subset{', old params' if OLD else ''})", "",
      f"bias {BIAS}, gap {GAP}; every query vs all 15,177 domains + 15,177 reversed-sequence decoys. "
-     f"{st['s_per_query']:.2f} s/query including decoys (3060 Ti, PyTorch engine).", "",
+     f"{st['s_per_query']:.2f} s/query including decoys (3060 Ti, fused Triton kernel).", "",
      "Sensitivity numbers: see poc/results/B_benchmark.md (rows exh640-raw / exh640-z).", "",
      "Hits at E < 1e-3 (per query, mean): "
      f"all {st['sig']:.1f}, remote (same superfamily, other family) {st['sig_remote']:.1f}, "
      f"wrong fold {st['sig_false_fold']:.2f}; queries with >= 1 wrong-fold hit: {st['queries_with_false_fold_hit']}/1000; "
-     f"decoys passing (expected ~0.001): {st['decoys_E<1e-3']:.3f}."]
+     f"decoys passing (expected ~0.001): {st['decoys_E<1e-3']:.3f}; decoys at E < 1 (expected ~1): {st['decoys_E<1']:.2f}.",
+     "", f"Hits scoring above the query's best decoy (empirical, no fit): {st['above_best_decoy']:.1f} per query, of which "
+     f"wrong fold {st['above_best_decoy_false_fold']:.2f}."]
 (out / f"exhaustive_sw{TAG}.md").write_text("\n".join(L) + "\n")
 log("\n".join(L))

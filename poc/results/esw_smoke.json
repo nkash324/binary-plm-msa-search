@@ -1,0 +1,10 @@
+{
+ "max_abs_diff": 0.0,
+ "seconds_per_query": 1.6581924915313722,
+ "gcups": 0.3638650097509411,
+ "gpu_peak_GB": 1.464685056,
+ "self_is_top_hit": 1.0,
+ "mean_query_len": 215.3,
+ "proj_scope_1000q_with_decoys_min": 47.49428873406159,
+ "proj_sprot_20q_min": 28.747298227877888
+}

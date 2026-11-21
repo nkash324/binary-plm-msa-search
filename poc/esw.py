@@ -48,7 +48,7 @@ def _sw_block(Q, R, starts, tl, bias, gap):
     return best
 
 
-def search(Qs, bits, off, bias, gap, targets=None, chunk_res=300_000, cells=40_000_000, pause=None, log=None):
+def search(Qs, bits, off, bias, gap, targets=None, chunk_res=1_000_000, cells=120_000_000, pause=None, log=None):
     """Qs: list of (Lq, D) +/-1 half GPU tensors. bits: (n_res, D/8) uint8 (np.memmap ok); off: (N+1,) offsets.
     targets: sorted protein indices to score (default all). Returns float32 (len(Qs), len(targets))."""
     N = len(off) - 1

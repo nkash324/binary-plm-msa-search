@@ -1,0 +1,13 @@
+{
+ "sig": 109.234,
+ "sig_false_fold": 62.16,
+ "sig_remote": 22.457,
+ "decoys_E<1e-3": 1.041,
+ "decoys_E<1": 4.786,
+ "above_best_decoy": 132.01,
+ "above_best_decoy_false_fold": 80.707,
+ "queries_with_false_fold_hit": 444,
+ "s_per_query": 0.03472300338745117,
+ "bias": 0.05,
+ "gap": 0.1
+}
