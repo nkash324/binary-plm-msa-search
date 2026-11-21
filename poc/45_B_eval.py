@@ -2,6 +2,7 @@
 (the pLM-BLAST queries), with memory per protein and time.  Same metric definitions as phase1/05_evaluate.py.
 Writes poc/results/B_benchmark.md."""
 import importlib.util
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -47,11 +48,14 @@ def evaluate(path, queries):
 
 
 KEEP = ["window-64-256", "twostage-K1000", "residue-center-diag", "protein-pca-256", "jackhmmer", "mmseqs2_iter3",
-        "dhr", "plmsearch_nopfam", "plmblast"]
+        "dhr", "plmsearch_nopfam", "plmblast",
+        "exh640-raw", "exh640-z", "exh640-raw-old", "exh640-z-old"] + sys.argv[1:]
 NOTE = {"window-64-256": "yours: window index (search only)", "twostage-K1000": "yours: window + embedding alignment",
         "residue-center-diag": "yours: full per-residue codes (slow upper bound)", "protein-pca-256": "yours: 32 B/protein",
         "jackhmmer": "letters", "mmseqs2_iter3": "letters (ColabFold-style)", "dhr": "DHR", "plmsearch_nopfam": "PLMSearch",
-        "plmblast": "pLM-BLAST (ProtT5 per residue)"}
+        "plmblast": "pLM-BLAST (ProtT5 per residue)",
+        "exh640-raw": "BinPLM: exhaustive embedding SW, raw score", "exh640-z": "BinPLM: exhaustive embedding SW, decoy z-score",
+        "exh640-raw-old": "exhaustive SW, raw (old SCOPe-tuned params)", "exh640-z-old": "exhaustive SW, z (old SCOPe-tuned params)"}
 L = ["# Test B: remote-relative search on SCOPe 2.08 (15,177 domains): BinPLM vs pLM-BLAST, PLMSearch, DHR", "",
      "Sensitivity = share of a query's true relatives ranked above its first wrong-fold hit (standard SCOPe benchmark).",
      "Superfamily = remote relatives (same superfamily, different family). Subset = the same 1000 random queries for "
@@ -67,7 +71,7 @@ for m in KEEP:
     covered = np.flatnonzero(np.diff(z["off"]) > 0)
     sub = evaluate(f, SUB)
     full = evaluate(f, covered)[1] if len(covered) > 2000 else float("nan")
-    rows.append((sub[1], f"| {m} | {NOTE[m]} | **{sub[1]:.3f}** | {sub[0]:.3f} | {sub[2]:.3f} | {sub[3]:.3f} | "
+    rows.append((sub[1], f"| {m} | {NOTE.get(m, m)} | **{sub[1]:.3f}** | {sub[0]:.3f} | {sub[2]:.3f} | {sub[3]:.3f} | "
                          f"{full:.3f} | {sub[4]:,.0f} | {sub[5]:.0f} |"))
 L += [r for _, r in sorted(rows, key=lambda x: -x[0])]
 L += ["", "Time = total for the whole benchmark as each method was run (pLM-BLAST: 1000 queries only; not directly "
