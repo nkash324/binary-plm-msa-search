@@ -58,6 +58,8 @@ for m in range(PQ_M):
     CB[f"PQT{m}"] = (C @ C.T).cpu().numpy() / 640                       # slice tables sum to the full score
 log("PQ4 fitted")
 np.savez(DATA / "codebooks.npz", **CB)
+del X
+torch.cuda.empty_cache()
 
 for name, bits, dst in (("SCOPe", sc, PHASE1), ("Swiss-Prot", sp, DATA)):     # one pass over the codes each
     t = time.time()
@@ -67,8 +69,8 @@ for name, bits, dst in (("SCOPe", sc, PHASE1), ("Swiss-Prot", sp, DATA)):     # 
     pq = np.lib.format.open_memmap(dst / f"res_pq4{suffix}.npy", mode="w+", shape=(len(bits), PQ_M), dtype=np.uint8)
     Cg = {K: torch.from_numpy(CB[f"C{K}"]).cuda().half() for K in outs}
     Pg = [torch.from_numpy(CB[f"PQ{m}"]).cuda().half() for m in range(PQ_M)]
-    for s in range(0, len(bits), 1_000_000):
-        Y = esw.unpack(np.asarray(bits[s:s + 1_000_000]))
+    for s in range(0, len(bits), 250_000):
+        Y = esw.unpack(np.asarray(bits[s:s + 250_000]))
         for K, o in outs.items():
             o[s:s + len(Y)] = (Y @ Cg[K].T).argmax(1).cpu().numpy().astype(o.dtype)
         pq[s:s + len(Y)] = torch.stack([(Y[:, m * W:(m + 1) * W] @ Pg[m].T).argmax(1) for m in range(PQ_M)],
